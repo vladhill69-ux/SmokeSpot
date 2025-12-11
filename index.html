@@ -1,1 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bay Smokehouse BBQ | Low & Slow Catering & Street Food</title>
+
+  <meta name="description" content="Bay Smokehouse BBQ serves low & slow smoked meats, loaded sides, and BBQ catering for events, parties and corporate functions." />
+  <meta name="keywords" content="BBQ catering, smoked meats, low and slow, Tauranga BBQ, food truck, grill, brisket, ribs" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body id="top">
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#top" class="logo" aria-label="Bay Smokehouse BBQ home">
+        <div class="logo-mark">BBQ</div>
+        <div>
+          <div class="logo-text-main">Bay Smokehouse BBQ</div>
+          <div class="logo-text-sub">Low & Slow • Wood Fired</div>
+        </div>
+      </a>
+
+      <div class="nav-links" role="menubar">
+        <a href="#menu" role="menuitem">Menu</a>
+        <a href="#about" role="menuitem">About</a>
+        <a href="#services" role="menuitem">Catering</a>
+        <a href="#gallery" role="menuitem">Gallery</a>
+        <a href="#faq" role="menuitem">FAQ</a>
+        <a href="#contact" role="menuitem">Contact</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="#quote" class="btn btn-primary">Instant BBQ Quote</a>
+      </div>
+
+      <button class="burger" id="burgerButton" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <div class="burger-lines"></div>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#services">Catering</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#quote" class="btn btn-primary" style="margin-top:.4rem;align-self:flex-start;">Instant BBQ Quote</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container hero-grid">
+      <!-- LEFT -->
+      <div>
+        <div class="badge">
+          <span>Food truck • Catering • Events</span>
+          Low & slow wood-smoked BBQ.
+        </div>
+
+        <h1 id="hero-heading" class="hero-title">
+          Fire-kissed BBQ, <span class="hero-highlight">made for sharing</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          Bay Smokehouse BBQ brings Texas-style low & slow to the Bay. Brisket, ribs, pulled pork and loaded sides –
+          served street-food style or fully catered for birthdays, weddings and corporate events.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#quote" class="btn btn-primary">Get an Instant Estimate</a>
+          <a href="#menu" class="btn btn-outline">View BBQ Menu</a>
+        </div>
+
+        <div class="hero-meta" aria-label="Quick facts">
+          <div class="hero-meta-item">
+            <div class="hero-meta-dot"></div>
+            <span>Smoked low & slow up to 14 hours</span>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-dot"></div>
+            <span>Perfect for 20–200+ guests</span>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-dot"></div>
+            <span>Available across Tauranga & Bay of Plenty</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT HERO IMAGE -->
+      <div class="hero-image" role="img" aria-label="Smoked BBQ platter with brisket, ribs and sides"></div>
+    </div>
+  </section>
+
+  <!-- MENU / PRODUCTS -->
+  <section id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Menu</div>
+        <h2 id="menu-heading" class="section-title">Signature smoked meats & loaded sides.</h2>
+        <p class="section-subtitle">
+          All meats are smoked low & slow over wood, served with house pickles, sauce and fresh soft rolls. 
+          Perfect for sharing boards, buffets or boxed street-food.
+        </p>
+      </div>
+
+      <div class="cards-grid" role="list">
+        <article class="card" role="listitem">
+          <div class="card-icon">🥩</div>
+          <h3>Beef Brisket</h3>
+          <p>12–14 hour smoked brisket with pepper bark and melt-in-your-mouth texture.</p>
+          <ul>
+            <li>By the kilo or per person</li>
+            <li>Served sliced or chopped</li>
+            <li>House BBQ sauce & pickles</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-price">From $18 / person</span>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-icon">🍖</div>
+          <h3>Pork Ribs</h3>
+          <p>St. Louis style ribs with a sticky glaze and smoke ring that speaks for itself.</p>
+          <ul>
+            <li>Smoked to tender bite</li>
+            <li>Dry rub + finishing glaze</li>
+            <li>Great for sharing platters</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-price">From $20 / rack</span>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-icon">🍔</div>
+          <h3>Pulled Pork & Sliders</h3>
+          <p>Smoked pork shoulder, hand-pulled and tossed in house sauce.</p>
+          <ul>
+            <li>Slider station or platters</li>
+            <li>Coleslaw & pickles included</li>
+            <li>Perfect for casual events</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-price">From $15 / person</span>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-icon">🥗</div>
+          <h3>Loaded Sides</h3>
+          <p>Choose your sides and build the perfect plate around the meat.</p>
+          <ul>
+            <li>Mac & cheese</li>
+            <li>Smoky beans & slaw</li>
+            <li>Roasted potatoes & salads</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-price">From $6 / person</span>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-icon">🔥</div>
+          <h3>BBQ Feast Boxes</h3>
+          <p>Mixed meats + sides packed in boxes for office lunches or sports teams.</p>
+          <ul>
+            <li>Individual or share boxes</li>
+            <li>Custom dietary options</li>
+            <li>Ideal for 10–80 people</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-price">From $25 / person</span>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-icon">🎉</div>
+          <h3>Kids & Vegetarian Options</h3>
+          <p>Inclusive BBQ so everyone eats well, not just the meat-lovers.</p>
+          <ul>
+            <li>Grilled veg skewers & halloumi</li>
+            <li>Kids sausage sizzle</li>
+            <li>Gluten-free options available</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-price">POA</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container about-grid">
+      <div>
+        <div class="section-header">
+          <div class="section-kicker">About</div>
+          <h2 id="about-heading" class="section-title">Born from backyard BBQs & weekend cookups.</h2>
+          <p class="section-subtitle">
+            Bay Smokehouse BBQ started as a mates-only cookup and grew into a full-time food truck and catering crew.
+            We still cook like we’re feeding friends – just with a bigger smoker.
+          </p>
+        </div>
+
+        <div class="about-card" aria-label="Company overview">
+          <h3>What we’re about</h3>
+          <p class="about-tagline">
+            No shortcuts, no boiled meat pretending to be BBQ. Just wood smoke, time and obsession with flavour.
+          </p>
+          <ul class="about-list">
+            <li>Low & slow smoked meats cooked fresh for your event.</li>
+            <li>Menu built around your crowd – casual, boujee or somewhere in between.</li>
+            <li>We bring the food truck or set up a buffet line at your venue.</li>
+            <li>Friendly, professional crew that actually enjoys the job.</li>
+          </ul>
+
+          <div class="about-badges" aria-label="Key strengths">
+            <span class="about-pill">✔ Event catering experts</span>
+            <span class="about-pill">✔ Food truck or buffet</span>
+            <span class="about-pill">✔ Tailored menus</span>
+            <span class="about-pill">✔ Local Bay business</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROCESS -->
+      <div>
+        <div class="section-header" style="margin-bottom:1rem;">
+          <div class="section-kicker">How it works</div>
+          <h2 class="section-title">Simple 3-step BBQ booking.</h2>
+        </div>
+
+        <div class="process-steps" aria-label="Three step process">
+          <div class="process-item">
+            <div class="process-number">1</div>
+            <div class="process-content">
+              <h3>Pick your date & rough numbers</h3>
+              <p>Tell us the date, venue and how many people you’re feeding. We’ll suggest the best package.</p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">2</div>
+            <div class="process-content">
+              <h3>Lock in your menu</h3>
+              <p>Choose your meats, sides and service style – food truck, buffet or feast boards.</p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">3</div>
+            <div class="process-content">
+              <h3>We roll in & fire up</h3>
+              <p>We handle the cook, set-up and service so you can hang out with your guests (and take the credit).</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.3rem;">
+          <a href="#quote" class="btn btn-primary">Get a BBQ estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATERING / SERVICES + INSTANT QUOTE -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container services-grid">
+      <div>
+        <div class="section-header">
+          <div class="section-kicker">Catering</div>
+          <h2 id="services-heading" class="section-title">From backyard birthdays to full corporate shouts.</h2>
+          <p class="section-subtitle">
+            We’ve got setups for small backyard hangs, wedding feasts and company events that need serious food with zero fuss.
+          </p>
+        </div>
+
+        <div class="cards-grid small-cards">
+          <article class="card">
+            <h3>Backyard & Family Events</h3>
+            <p>Perfect for birthdays, anniversaries and casual get-togethers at home or local halls.</p>
+            <ul>
+              <li>20–60 guests</li>
+              <li>Buffet or feast boards</li>
+              <li>Kids menu options</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Weddings & Big Occasions</h3>
+            <p>Laid-back, share-style food that still feels special (and gets people talking weeks later).</p>
+            <ul>
+              <li>60–200+ guests</li>
+              <li>Staffed buffet line</li>
+              <li>Canapés & late-night snacks</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Corporate & Sports Teams</h3>
+            <p>Feed the crew properly at your next training, Friday shout or tournament day.</p>
+            <ul>
+              <li>Drop-off or staffed service</li>
+              <li>Individually boxed or buffet</li>
+              <li>Invoices & PO friendly</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- INSTANT QUOTE CALCULATOR -->
+      <div id="quote" class="quote-card" aria-label="Instant BBQ quote calculator">
+        <h3>Instant BBQ Quote (estimate)</h3>
+        <p class="quote-subtitle">
+          Get a rough idea of cost in seconds. We’ll confirm exact pricing once we know your venue and final numbers.
+        </p>
+
+        <form id="quoteForm" novalidate>
+          <label for="guestCount">How many people?</label>
+          <input type="number" id="guestCount" name="guestCount" min="10" max="300" placeholder="e.g. 60" required />
+
+          <label for="packageType">Package type</label>
+          <select id="packageType" name="packageType" required>
+            <option value="">Select a package</option>
+            <option value="classic">Classic BBQ (1 meat + 2 sides)</option>
+            <option value="feast">Feast (2 meats + 3 sides)</option>
+            <option value="premium">Premium (3 meats + 4 sides)</option>
+          </select>
+
+          <label for="serviceStyle">Service style</label>
+          <select id="serviceStyle" name="serviceStyle" required>
+            <option value="">Select service style</option>
+            <option value="dropoff">Drop-off only</option>
+            <option value="buffet">Staffed buffet</option>
+            <option value="truck">Food truck service</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary">Calculate estimate</button>
+
+          <p id="quoteResult" class="quote-result" aria-live="polite"></p>
+          <p class="quote-note">Prices are indicative only and exclude travel. Request a formal quote below.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Gallery</div>
+        <h2 id="gallery-heading" class="section-title">Smoke, fire & feast boards.</h2>
+        <p class="section-subtitle">
+          Swap in your own photos here – smokers in action, meat close-ups, event setups and happy guests.
+        </p>
+      </div>
+
+      <div class="gallery-grid" aria-label="BBQ gallery">
+        <div class="gallery-item" style="background-image:url('assets/imgs/bbq-platter-1.jpg');" aria-label="BBQ platter with brisket and ribs"></div>
+        <div class="gallery-item" style="background-image:url('assets/imgs/bbq-ribs-2.jpg');" aria-label="Glazed pork ribs on smoker"></div>
+        <div class="gallery-item" style="background-image:url('assets/imgs/bbq-truck-3.jpg');" aria-label="BBQ food truck setup"></div>
+        <div class="gallery-item" style="background-image:url('assets/imgs/bbq-feast-4.jpg');" aria-label="Feast boards on long table"></div>
+      </div>
+
+      <div class="gallery-video-box">
+        <h3 class="gallery-video-title">See the smoker in action</h3>
+        <div class="gallery-video-wrapper">
+          <video controls muted playsinline width="100%">
+            <source src="assets/videos/bbq-reel.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS + FAQ -->
+  <section aria-labelledby="testimonials-heading" id="faq">
+    <div class="container testimonials-faq-grid">
+      <!-- Testimonials -->
+      <div class="testimonials-wrapper">
+        <div class="testimonials-header">
+          <div>
+            <h2 id="testimonials-heading">What people are saying.</h2>
+            <p class="muted">
+              Real feedback from events we’ve fed. Swap these out for your friend’s actual reviews later.
+            </p>
+          </div>
+        </div>
+
+        <div class="testimonial" aria-live="polite">
+          <p class="testimonial-quote" id="testimonialQuote">
+            “Easiest catering we’ve ever done. Everyone raved about the brisket and we had zero leftovers.”
+          </p>
+          <div class="testimonial-name" id="testimonialName">Jess & Tom</div>
+          <div class="testimonial-meta" id="testimonialMeta">40th birthday party</div>
+
+          <div class="testimonial-dots" aria-label="Testimonials navigation">
+            <div class="testimonial-dot active" data-index="0"></div>
+            <div class="testimonial-dot" data-index="1"></div>
+            <div class="testimonial-dot" data-index="2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-wrapper">
+        <h2 class="section-title">Common questions.</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How far in advance should we book?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              For weekends and summer dates, 4–8 weeks is ideal. Last-minute bookings are sometimes possible – send us a message and we’ll see what we can do.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can you handle dietary requirements?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes. We can provide gluten-free options, vegetarian/vegan dishes and clearly label all allergens. Just let us know when you enquire.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you need power or anything else at the venue?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              For the full food truck setup we need flat parking and access to power if available. For buffet-only service we just need table space and serving area.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is online ordering available?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We’re working on it. For now, use the form below or message us on socials to order boxes, platters or catering.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container contact-grid">
+      <!-- LEFT -->
+      <div>
+        <div class="section-header">
+          <div class="section-kicker">Contact</div>
+          <h2 id="contact-heading" class="section-title">Ready to talk BBQ?</h2>
+          <p class="section-subtitle">
+            Tell us about your date, venue and guest numbers. We’ll come back with a tailored BBQ plan and quote.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-details">
+            <div>
+              <span>Phone</span>
+              <a href="tel:+64000000000">+64 000 000 000</a>
+            </div>
+            <div>
+              <span>Email</span>
+              <a href="mailto:hello@baysmokehousebbq.co.nz">hello@baysmokehousebbq.co.nz</a>
+            </div>
+            <div>
+              <span>Service Area</span>
+              <p>Tauranga & Bay of Plenty – venues, homes, halls and outdoor spaces.</p>
+            </div>
+            <div>
+              <span>Hours</span>
+              <p>Thu–Sun: Events & service<br />Mon–Wed: Prep & enquiries.</p>
+            </div>
+            <div>
+              <span>Social</span>
+              <p class="social-links">
+                <a href="#" aria-label="Instagram">Instagram</a> ·
+                <a href="#" aria-label="Facebook">Facebook</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+            <div class="form-group">
+              <label for="eventType">Event type</label>
+              <select id="eventType" name="eventType">
+                <option value="">Select event type</option>
+                <option>Birthday</option>
+                <option>Wedding</option>
+                <option>Corporate</option>
+                <option>Sports / Club</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="eventDate">Event date</label>
+              <input type="date" id="eventDate" name="eventDate" />
+            </div>
+            <div class="form-group">
+              <label for="guests">Approx. guests</label>
+              <input type="number" id="guests" name="guests" min="10" max="300" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell us about your event *</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Venue, timing, menu ideas..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send enquiry</button>
+          <p id="contactResult" class="form-result" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo-text-main" style="margin-bottom:0.3rem;">Bay Smokehouse BBQ</div>
+        <p>Low & slow BBQ catering, food truck events and feast boards across the Bay.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#services">Catering</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-newsletter">
+        <p>Join the pit list for pop-ups & specials.</p>
+        <form id="newsletterForm" class="newsletter-form" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Your email" required />
+          <button type="submit" class="btn btn-outline">Join</button>
+        </form>
+        <p id="newsletterResult" class="form-result" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Bay Smokehouse BBQ. All rights reserved.</span>
+      <span>Crafted with smoke & good company.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+64000000000" class="call-now-btn" aria-label="Call now">
+  📞
+</a>
+
+</body>
+</html>
 
