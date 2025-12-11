@@ -963,3 +963,70 @@ footer {
     align-items: flex-start;
   }
 }
+/* ==== SMOKE SPOT UPGRADES ==== */
+
+/* Better reading + section separation */
+body {
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 5rem 0 4.5rem;
+  background: radial-gradient(circle at top, #111111 0, #000000 55%);
+  border-bottom: 1px solid #111111;
+}
+
+section:nth-of-type(even) {
+  background: #050505;
+}
+
+/* Logo in hero */
+.hero-logo {
+  width: 130px;
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+/* Centre key section headers */
+#menu .section-header,
+#services .section-header,
+#gallery .section-header {
+  text-align: center;
+}
+
+#menu .section-subtitle,
+#services .section-subtitle,
+#gallery .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Make the “menu” cards feel like real menu blocks */
+#menu .cards-grid {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+#menu .card {
+  border-radius: 0;
+  border-left: 4px solid #ff0000;
+  box-shadow: none;
+}
+
+#menu .card h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+#menu .card p,
+#menu .card ul {
+  font-size: 0.9rem;
+}
+
+/* Slightly wider hero layout on big screens */
+@media (min-width: 960px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+}
+
