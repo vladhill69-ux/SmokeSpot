@@ -1120,5 +1120,45 @@ section:nth-of-type(even) {
   #menu .card {
     margin-inline: auto;
   }
+  /* ==== SMOKE SPOT MENU IMAGES ==== */
+
+.menu-image-grid {
+  max-width: 880px;
+  margin-inline: auto;
+  gap: 1.6rem;
+}
+
+.menu-image-card {
+  padding: 0;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-image-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+}
+
+.menu-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #ff0000;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .menu-image-grid {
+    max-width: 100%;
+  }
+
+  .menu-image-card {
+    margin-inline: auto;
+  }
+}
+
 }
 
