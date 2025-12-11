@@ -1037,3 +1037,88 @@ section:nth-of-type(even) {
 
 }
 
+/* ==== SMOKE SPOT MENU BOARD STYLE ==== */
+
+#menu {
+  padding-top: 5rem;
+}
+
+#menu .section-header {
+  text-align: center;
+}
+
+#menu .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Layout for the three boards */
+#menu .cards-grid {
+  max-width: 880px;
+  margin-inline: auto;
+  gap: 1.6rem;
+}
+
+/* Board container */
+#menu .card {
+  background: #050505;
+  border-radius: 8px;
+  border: 2px solid #ff0000;
+  padding: 1.1rem 1.4rem 1.3rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out;
+}
+
+#menu .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
+  border-color: #ff3333;
+}
+
+/* Red header strip like the board top */
+#menu .card h3 {
+  margin: -1.1rem -1.4rem 0.9rem;
+  padding: 0.55rem 0.8rem;
+  background: #ff0000;
+  color: #000000;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #990000;
+}
+
+/* Menu items */
+#menu .card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none;
+  color: #ffffff;
+}
+
+#menu .card ul li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #161616;
+}
+
+#menu .card ul li:last-child {
+  border-bottom: none;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 720px) {
+  #menu .cards-grid {
+    max-width: 100%;
+  }
+
+  #menu .card {
+    margin-inline: auto;
+  }
+}
+
