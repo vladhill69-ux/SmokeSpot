@@ -1,219 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === CONSTANTS FOR THE THEME ===
-  const ERROR_COLOR = "#ff4d4d";  // red-ish for errors
-  const OK_COLOR = "#ffffff";     // white for success
-
-  // === YEAR IN FOOTER ===
+  // YEAR
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // === BURGER MENU ===
-  const burgerButton = document.getElementById("burgerButton");
+  // BURGER MENU
+  const burger = document.getElementById("burgerButton");
   const mobileMenu = document.getElementById("mobileMenu");
-
-  if (burgerButton && mobileMenu) {
-    burgerButton.addEventListener("click", () => {
-      const isOpen = burgerButton.classList.toggle("open");
+  if (burger && mobileMenu) {
+    burger.addEventListener("click", () => {
+      const isOpen = burger.classList.toggle("open");
       mobileMenu.style.display = isOpen ? "flex" : "none";
-      burgerButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    // close menu when a link is clicked
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        burgerButton.classList.remove("open");
-        burgerButton.setAttribute("aria-expanded", "false");
+        burger.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
         mobileMenu.style.display = "none";
       });
     });
   }
 
-  // === TESTIMONIAL SLIDER ===
-  const testimonials = [
-    {
-      quote:
-        "“Easiest catering we’ve ever done. Everyone raved about the brisket and we had zero leftovers.”",
-      name: "Jess & Tom",
-      meta: "40th birthday party",
-    },
-    {
-      quote:
-        "“The food truck was the star of our wedding. Huge portions, insanely good meat and the team were legends.”",
-      name: "Mia & Luke",
-      meta: "Wedding feast for 110 guests",
-    },
-    {
-      quote:
-        "“Perfect for our staff shout. Arrived on time, fed everyone fast and the feedback was 10/10.”",
-      name: "Claire",
-      meta: "Corporate lunch, 60 staff",
-    },
-  ];
-
-  const quoteEl = document.getElementById("testimonialQuote");
-  const nameEl = document.getElementById("testimonialName");
-  const metaEl = document.getElementById("testimonialMeta");
-  const dots = document.querySelectorAll(".testimonial-dot");
-
-  function setTestimonial(index) {
-    const t = testimonials[index];
-    if (!t || !quoteEl || !nameEl || !metaEl) return;
-
-    quoteEl.textContent = t.quote;
-    nameEl.textContent = t.name;
-    metaEl.textContent = t.meta;
-
-    dots.forEach((d) => d.classList.remove("active"));
-    const activeDot = document.querySelector(
-      `.testimonial-dot[data-index="${index}"]`
-    );
-    if (activeDot) activeDot.classList.add("active");
-  }
-
-  if (dots.length && quoteEl && nameEl && metaEl) {
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const index = Number(dot.dataset.index || 0);
-        setTestimonial(index);
-      });
-    });
-
-    let testimonialIndex = 0;
-    setTestimonial(0);
-
-    setInterval(() => {
-      testimonialIndex = (testimonialIndex + 1) % testimonials.length;
-      setTestimonial(testimonialIndex);
-    }, 8000);
-  }
-
-  // === FAQ ACCORDION ===
-  const faqQuestions = document.querySelectorAll(".faq-question");
-
-  faqQuestions.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-      const answer = btn.nextElementSibling;
-
-      // close others
-      faqQuestions.forEach((otherBtn) => {
-        if (otherBtn !== btn) {
-          otherBtn.setAttribute("aria-expanded", "false");
-          const otherAnswer = otherBtn.nextElementSibling;
-          if (otherAnswer) {
-            otherAnswer.style.maxHeight = null;
-            const icon = otherBtn.querySelector(".faq-icon");
-            if (icon) icon.textContent = "+";
-          }
-        }
-      });
-
-      btn.setAttribute("aria-expanded", expanded ? "false" : "true");
-      if (answer) {
-        if (!expanded) {
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        } else {
-          answer.style.maxHeight = null;
-        }
-        const icon = btn.querySelector(".faq-icon");
-        if (icon) icon.textContent = expanded ? "+" : "−";
-      }
-    });
-  });
-
-  // === INSTANT QUOTE CALCULATOR ===
-  const quoteForm = document.getElementById("quoteForm");
-  const quoteResult = document.getElementById("quoteResult");
-
-  if (quoteForm && quoteResult) {
-    quoteForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const guests = Number(
-        document.getElementById("guestCount")?.value || 0
-      );
-      const packageType =
-        document.getElementById("packageType")?.value || "";
-      const serviceStyle =
-        document.getElementById("serviceStyle")?.value || "";
-
-      if (!guests || guests < 10 || !packageType || !serviceStyle) {
-        quoteResult.textContent =
-          "Please enter at least 10 guests and choose a package & service style.";
-        quoteResult.style.color = ERROR_COLOR;
-        return;
-      }
-
-      let basePerPerson = 0;
-      if (packageType === "classic") basePerPerson = 22;
-      if (packageType === "feast") basePerPerson = 30;
-      if (packageType === "premium") basePerPerson = 38;
-
-      let serviceMultiplier = 1;
-      if (serviceStyle === "dropoff") serviceMultiplier = 1;
-      if (serviceStyle === "buffet") serviceMultiplier = 1.15;
-      if (serviceStyle === "truck") serviceMultiplier = 1.25;
-
-      const rawTotal = guests * basePerPerson * serviceMultiplier;
-      const rounded = Math.round(rawTotal / 10) * 10;
-
-      quoteResult.textContent = `Rough estimate: ~$${rounded.toLocaleString()} for food & basic service. We’ll confirm once we know your venue & timings.`;
-      quoteResult.style.color = OK_COLOR;
-    });
-  }
-
-  // === CONTACT FORM (front-end only) ===
+  // CONTACT FORM (frontend only)
   const contactForm = document.getElementById("contactForm");
   const contactResult = document.getElementById("contactResult");
 
   if (contactForm && contactResult) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const requiredIds = ["name", "email", "phone", "message"];
-      let valid = true;
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
 
-      requiredIds.forEach((id) => {
-        const field = document.getElementById(id);
-        if (!field) return;
-        if (!field.value.trim()) {
-          valid = false;
-          field.style.borderColor = ERROR_COLOR;
-        } else {
-          field.style.borderColor = "#333333";
-        }
-      });
-
-      if (!valid) {
+      if (
+        !name.value.trim() ||
+        !email.value.trim() ||
+        !message.value.trim()
+      ) {
         contactResult.textContent = "Please fill in all required fields.";
-        contactResult.style.color = ERROR_COLOR;
+        contactResult.style.color = "#ff4d4d";
         return;
       }
 
       contactResult.textContent =
-        "Thanks! Your enquiry has been sent. We’ll get back to you shortly.";
-      contactResult.style.color = OK_COLOR;
+        "Thanks! Your message has been sent (simulated). Smoke Spot will get back to you soon.";
+      contactResult.style.color = "#ffffff";
       contactForm.reset();
-    });
-  }
-
-  // === NEWSLETTER ===
-  const newsletterForm = document.getElementById("newsletterForm");
-  const newsletterResult = document.getElementById("newsletterResult");
-  const newsletterEmail = document.getElementById("newsletterEmail");
-
-  if (newsletterForm && newsletterResult && newsletterEmail) {
-    newsletterForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      if (!newsletterEmail.value.trim()) {
-        newsletterResult.textContent = "Please add your email to join.";
-        newsletterResult.style.color = ERROR_COLOR;
-        return;
-      }
-
-      newsletterResult.textContent = "You’re on the list! 🔥";
-      newsletterResult.style.color = OK_COLOR;
-      newsletterEmail.value = "";
     });
   }
 });
