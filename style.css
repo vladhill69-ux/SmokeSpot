@@ -368,10 +368,16 @@ section {
 }
 
 .hero-title {
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-size: clamp(2.4rem, 3vw + 1.8rem, 3.4rem);
-  margin: 0 0 0.6rem;
+  font-size: 2.6rem;     /* was too big, now balanced */
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
 }
+
+.hero-highlight {
+  color: #ff0000;
+}
+
 
 .hero-highlight {
   color: var(--accent);
