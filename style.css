@@ -106,12 +106,32 @@ section {
   align-items: center;
 }
 
+/* HUGE HEADER LOGO */
 .logo-img {
-  height: 88px;
+  height: 150px;          /* massively bigger */
   width: auto;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
-  transition: transform 0.22s ease-out, filter 0.22s ease-out;
+  filter: drop-shadow(0 6px 20px rgba(255, 0, 0, 0.25))
+          drop-shadow(0 12px 28px rgba(0, 0, 0, 0.75));
+  transition: transform 0.25s ease-out, filter 0.25s ease-out;
 }
+
+.logo:hover .logo-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 10px 32px rgba(255, 0, 0, 0.35))
+          drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
+}
+
+/* Make nav spacing adjust for larger logo */
+.nav {
+  padding: 1.2rem 0;
+}
+
+@media (max-width: 820px) {
+  .logo-img {
+    height: 110px; /* still big on mobile */
+  }
+}
+
 
 .logo:hover .logo-img {
   transform: scale(1.06) rotate(-1deg);
