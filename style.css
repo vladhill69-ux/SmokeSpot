@@ -1206,4 +1206,45 @@ section:nth-of-type(even) {
 }
 
 }
+/* ==== FINAL FIX FOR MENU BOARDS ==== */
+
+.menu-image-grid {
+  max-width: 900px;
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-items: center;
+}
+
+.menu-image-card {
+  padding: 0.75rem;
+  background: #000;
+  border-radius: 10px;
+  border: 2px solid #ff0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HARD RESET: remove any previous aspect-ratio / height rules */
+.menu-image {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 380px;          /* control size */
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .menu-image {
+    max-height: 320px;
+  }
+}
+
 
