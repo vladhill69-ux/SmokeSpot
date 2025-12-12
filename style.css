@@ -34,6 +34,26 @@ body {
   color: var(--text-main);
   line-height: 1.6;
 }
+body {
+  background: #000;
+  color: var(--text-main);
+  background-image: url("assets/logo.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 800px;
+  opacity: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("assets/logo.jpg") center top / 900px no-repeat;
+  opacity: 0.06; /* adjust visibility */
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(1px) contrast(120%);
+}
 
 img {
   max-width: 100%;
