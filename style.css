@@ -472,38 +472,20 @@ section {
   border: 2px solid var(--accent);
   width: 100%;
   max-width: 430px;
-   @media (max-width: 880px) {
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.2rem;
-  }
-}
 
-
-  /* NEW neon glow (matches logo) */
+  /* Neon glow (matches logo) */
   box-shadow:
-    0 0 25px rgba(255, 0, 0, 0.35),   /* outer red glow */
-    0 0 55px rgba(255, 0, 0, 0.18),   /* soft expanding glow */
-    0 18px 45px rgba(0, 0, 0, 0.9);   /* deep shadow like logo */
+    0 0 25px rgba(255, 0, 0, 0.35),
+    0 0 55px rgba(255, 0, 0, 0.18),
+    0 18px 45px rgba(0, 0, 0, 0.9);
 
   border-color: var(--accent);
   overflow: hidden;
   transform-origin: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              border-color 0.25s ease;
 }
-
-.menu-board:hover {
-  transform: translateY(-10px) scale(1.04);
-  border-color: var(--accent-soft);
-
-  /* STRONGER hover neon, like logo hover */
-  box-shadow:
-    0 0 35px rgba(255, 0, 0, 0.55),
-    0 0 70px rgba(255, 0, 0, 0.32),
-    0 26px 60px rgba(0, 0, 0, 1);
-}
-
 
 .menu-board::before {
   content: "";
@@ -518,7 +500,7 @@ section {
 
 .menu-board img {
   width: 100%;
-  height: auto;
+  height: auto;          /* keeps proportions */
   border-radius: 12px;
   display: block;
 }
@@ -526,8 +508,10 @@ section {
 /* Hover effect: lift + glow + slight scale */
 .menu-board:hover {
   transform: translateY(-10px) scale(1.04);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 1),
-    0 0 30px rgba(255, 0, 0, 0.25);
+  box-shadow:
+    0 0 35px rgba(255, 0, 0, 0.55),
+    0 0 70px rgba(255, 0, 0, 0.32),
+    0 26px 60px rgba(0, 0, 0, 1);
   border-color: var(--accent-soft);
   cursor: pointer;
 }
@@ -535,6 +519,7 @@ section {
 .menu-board:hover::before {
   opacity: 1;
 }
+
 
 /* ==========
    ABOUT
