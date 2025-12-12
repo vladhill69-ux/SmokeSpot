@@ -521,6 +521,27 @@ section {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 2.3rem;
 }
+/* HERO IMAGE – MATCH RED GLOW STYLE */
+.hero-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  display: block;
+
+  /* 🔥 Red neon glow */
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.45),
+              0 0 60px rgba(255, 0, 0, 0.25);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Optional hover lift – looks sexy but subtle */
+.hero-media img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.7),
+              0 0 90px rgba(255, 0, 0, 0.4);
+}
+
 
 .about-card {
   background: var(--bg-alt);
