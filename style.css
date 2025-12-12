@@ -324,6 +324,23 @@ section {
   gap: 3rem;
   align-items: center;
 }
+/* HERO IMAGE FIX */
+.hero-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-media img {
+  width: 100%;
+  max-width: 520px;        /* reduces the giant size */
+  max-height: 380px;       /* keeps proportions smaller */
+  object-fit: cover;
+  border-radius: 1rem;     /* matches the website style */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+  margin: 0 auto;
+}
+
 
 
 .badge {
