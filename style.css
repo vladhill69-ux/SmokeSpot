@@ -344,20 +344,42 @@ section {
   margin-right: auto;
 }
 
+/* MENU BOARDS — UPDATED */
+
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* bigger base size */
+  gap: 2rem;
   justify-items: center;
+  align-items: start;
 }
 
 .menu-board {
   background: #050505;
-  padding: 0.9rem;
-  border-radius: 10px;
+  padding: 1.2rem;
+  border-radius: 14px;
   border: 2px solid var(--accent);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.9);
+  width: 100%;
+  max-width: 380px;              /* bigger card */
+  box-shadow: 0 14px 36px rgba(0,0,0,0.8);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+
+.menu-board img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  object-fit: contain;           /* ensures no stretching */
+}
+
+/* Hover Effect */
+.menu-board:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 22px 50px rgba(255,0,0,0.25), 0 10px 25px rgba(0,0,0,0.9);
+  border-color: #ff3333;
+}
+
 
 .menu-board img {
   width: 100%;
