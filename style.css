@@ -1150,47 +1150,49 @@ section:nth-of-type(even) {
 
 /* ==== MENU BOARDS – FIX PROPORTIONS ==== */
 
+/* === FIXED MENU IMAGE SIZING (SHOW FULL IMAGE, NO CROP) === */
+
 .menu-image-grid {
   max-width: 900px;
-  margin-inline: auto;
+  margin: 2rem auto;
   display: grid;
-  gap: 1.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  justify-items: center;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .menu-image-card {
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  display: flex;
-  justify-content: center;
-}
-
-/* Keep boards same shape, no weird stretching */
-.menu-image {
-  display: block;
-  width: 100%;
-  max-width: 280px;          /* board width */
-  aspect-ratio: 9 / 16;      /* tall phone-style board */
-  object-fit: cover;         /* crop nicely */
+  background: #000;
+  padding: 1rem;
   border-radius: 10px;
   border: 2px solid #ff0000;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
 }
 
-.menu-image-card:hover .menu-image {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 1);
+.menu-image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.9);
 }
 
+/* The magic: scale the entire image, no distort, no crop */
+.menu-image {
+  width: 100%;
+  height: auto;         /* keeps original proportions */
+  max-width: 240px;     /* shrink overall size */
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+/* Mobile tweaks */
 @media (max-width: 720px) {
   .menu-image {
-    max-width: 320px;
+    max-width: 300px;
   }
 }
+
 
 /* Mobile */
 @media (max-width: 720px) {
