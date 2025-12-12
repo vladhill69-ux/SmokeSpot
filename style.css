@@ -27,45 +27,13 @@ body {
   scroll-behavior: smooth;
 }
 
-/* ===========
-   ASHY BACKDROP
-   =========== */
-
 body {
-  position: relative;
   font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top, #151515 0, #000000 50%, #000000 100%);
+  background: var(--bg);
   color: var(--text-main);
   line-height: 1.6;
-  overflow-x: hidden;
 }
-
-/* Smoke / ash overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -40px;
-  z-index: -1;
-  pointer-events: none;
-
-  /* layered gradients for dusty / smoky feel */
-  background-image:
-    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.05) 0, transparent 55%),
-    radial-gradient(circle at 80% 10%, rgba(255, 0, 0, 0.08) 0, transparent 60%),
-    repeating-linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.04),
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  opacity: 0.13;
-  mix-blend-mode: screen;
-}
-
-/* IMAGES */
 
 img {
   max-width: 100%;
@@ -407,29 +375,6 @@ section {
   align-items: flex-start;
 }
 
-/* Ember pulsing animation */
-
-@keyframes emberPulse {
-  0% {
-    box-shadow:
-      0 0 18px rgba(255, 0, 0, 0.28),
-      0 0 40px rgba(255, 0, 0, 0.15),
-      0 18px 45px rgba(0, 0, 0, 0.9);
-  }
-  50% {
-    box-shadow:
-      0 0 30px rgba(255, 80, 0, 0.6),
-      0 0 70px rgba(255, 0, 0, 0.35),
-      0 26px 60px rgba(0, 0, 0, 1);
-  }
-  100% {
-    box-shadow:
-      0 0 18px rgba(255, 0, 0, 0.28),
-      0 0 40px rgba(255, 0, 0, 0.15),
-      0 18px 45px rgba(0, 0, 0, 0.9);
-  }
-}
-
 .menu-board {
   position: relative;
   background: #050505;
@@ -438,27 +383,40 @@ section {
   border: 2px solid var(--accent);
   width: 100%;
   max-width: 430px;
+
+  /* NEW neon glow (matches logo) */
+  box-shadow:
+    0 0 25px rgba(255, 0, 0, 0.35),   /* outer red glow */
+    0 0 55px rgba(255, 0, 0, 0.18),   /* soft expanding glow */
+    0 18px 45px rgba(0, 0, 0, 0.9);   /* deep shadow like logo */
+
+  border-color: var(--accent);
   overflow: hidden;
   transform-origin: center;
-  cursor: pointer;
-
-  /* base glow (will be animated) */
-  box-shadow:
-    0 0 18px rgba(255, 0, 0, 0.28),
-    0 0 40px rgba(255, 0, 0, 0.15),
-    0 18px 45px rgba(0, 0, 0, 0.9);
-
-  animation: emberPulse 3.6s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+
+.menu-board:hover {
+  transform: translateY(-10px) scale(1.04);
+  border-color: var(--accent-soft);
+
+  /* STRONGER hover neon, like logo hover */
+  box-shadow:
+    0 0 35px rgba(255, 0, 0, 0.55),
+    0 0 70px rgba(255, 0, 0, 0.32),
+    0 26px 60px rgba(0, 0, 0, 1);
+}
+
 
 .menu-board::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03), transparent 60%);
-  opacity: 0.6;
+  background: radial-gradient(circle at top, rgba(255, 0, 0, 0.07), transparent);
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.25s ease;
 }
 
 .menu-board img {
@@ -468,10 +426,17 @@ section {
   display: block;
 }
 
-/* Extra lift + tighter glow on hover */
+/* Hover effect: lift + glow + slight scale */
 .menu-board:hover {
   transform: translateY(-10px) scale(1.04);
-  animation-duration: 2.2s; /* speeds up the pulse a bit when hovered */
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 1),
+    0 0 30px rgba(255, 0, 0, 0.25);
+  border-color: var(--accent-soft);
+  cursor: pointer;
+}
+
+.menu-board:hover::before {
+  opacity: 1;
 }
 
 /* ==========
@@ -534,4 +499,121 @@ section {
 #contact-box {
   padding: 4rem 0;
   background: #0a0a0a;
-  border-top: 1px solid #1
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+
+.contact-box {
+  text-align: center;
+  max-width: 630px;
+  margin: 0 auto;
+  padding: 2.2rem 2rem;
+  background: #050505;
+  border: 2px solid var(--accent);
+  border-radius: 1.2rem;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+}
+
+.contact-box h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.contact-box p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.contact-box-number a {
+  display: inline-block;
+  font-size: 1.7rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 1.2rem;
+  transition: color 0.18s ease-out, transform 0.18s ease-out;
+}
+
+.contact-box-number a:hover {
+  color: #ff3333;
+  transform: scale(1.05);
+}
+
+.contact-box-btn {
+  font-size: 1rem;
+  padding: 0.9rem 2.2rem;
+}
+
+/* =======
+   FOOTER
+   ======= */
+
+footer {
+  padding: 2.1rem 0 2.5rem;
+  background: #000000;
+  border-top: 1px solid #111;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-logo {
+  height: 42px;
+  width: auto;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.95rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: 1.3rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ============
+   CALL BUTTON
+   ============ */
+
+.call-now-btn {
+  position: fixed;
+  bottom: 1.4rem;
+  right: 1.4rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.4rem;
