@@ -735,3 +735,86 @@ footer {
   justify-content: center;
   text-decaoration: none;
   font-size: 1.4rem;
+}
+/* ======================
+   RESPONSIVE LAYOUT
+   ====================== */
+
+/* Tablets & down */
+@media (max-width: 1024px) {
+
+  .logo-img {
+    height: 180px;           /* smaller logo on tablets */
+  }
+
+  .hero {
+    padding: 5rem 0 3.5rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.1fr);
+    gap: 2rem;
+  }
+
+  .hero-media {
+    justify-content: flex-start;
+  }
+
+  .hero-media img {
+    max-width: 460px;
+    margin: 0;
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .menu-board {
+    max-width: 520px;
+  }
+}
+
+/* Phones */
+@media (max-width: 720px) {
+
+  .nav {
+    padding: 0.7rem 0;
+  }
+
+  .logo-img {
+    height: 130px;           /* sensible size on phones */
+  }
+
+  .nav-links {
+    display: none;           /* hide desktop nav */
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .hero {
+    padding-top: 4.5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero-media {
+    justify-content: center;
+  }
+
+  .hero-media img {
+    max-width: 360px;
+    max-height: 260px;
+
