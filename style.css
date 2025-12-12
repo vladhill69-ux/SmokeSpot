@@ -1127,31 +1127,48 @@ section:nth-of-type(even) {
   }
   /* ==== SMOKE SPOT MENU IMAGES ==== */
 
+/* ==== MENU BOARDS – FIX PROPORTIONS ==== */
+
 .menu-image-grid {
-  max-width: 880px;
+  max-width: 900px;
   margin-inline: auto;
+  display: grid;
   gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  justify-items: center;
 }
 
 .menu-image-card {
   padding: 0;
-  border-radius: 10px;
-  border: none;
   background: transparent;
+  border: none;
   box-shadow: none;
+  display: flex;
+  justify-content: center;
 }
 
-.menu-image-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
-}
-
+/* Keep boards same shape, no weird stretching */
 .menu-image {
   display: block;
   width: 100%;
-  height: auto;
+  max-width: 280px;          /* board width */
+  aspect-ratio: 9 / 16;      /* tall phone-style board */
+  object-fit: cover;         /* crop nicely */
   border-radius: 10px;
   border: 2px solid #ff0000;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+}
+
+.menu-image-card:hover .menu-image {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 720px) {
+  .menu-image {
+    max-width: 320px;
+  }
 }
 
 /* Mobile */
