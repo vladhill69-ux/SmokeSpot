@@ -118,6 +118,27 @@ section {
   font-size: 0.7rem;
   font-weight: 700;
 }
+.logo-img {
+  height: 80px;          /* bigger logo */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.7));
+  transition: transform 0.18s ease-out, filter 0.18s ease-out;
+}
+
+/* Little hover flair */
+.logo:hover .logo-img {
+  transform: scale(1.05) rotate(-1deg);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.9));
+}
+
+/* Slightly smaller on small screens so it doesn’t dominate */
+@media (max-width: 720px) {
+  .logo-img {
+    height: 64px;
+  }
+}
+
 
 .logo-text-main {
   font-family: "Montserrat", system-ui, sans-serif;
