@@ -369,10 +369,11 @@ section {
   min-height: 260px;
   border-radius: 1.3rem;
   border: 1px solid #222222;
-  background-image: url("assets/imgs/bbq-hero.jpg");
+  background-image: url("assets/brisket.jpg");
   background-size: cover;
   background-position: center;
 }
+
 
 /* ============ CARDS / MENU BLOCKS ============ */
 
