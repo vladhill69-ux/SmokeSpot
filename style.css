@@ -98,7 +98,7 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem 0;
+  padding: 1.2rem 0;
 }
 
 .logo {
@@ -106,9 +106,10 @@ section {
   align-items: center;
 }
 
-/* HUGE HEADER LOGO */
+/* BIG GLOWING LOGO */
+
 .logo-img {
-  height: 200px;   /* was 150px */
+  height: 200px;
   width: auto;
   filter: drop-shadow(0 6px 20px rgba(255, 0, 0, 0.25))
           drop-shadow(0 12px 28px rgba(0, 0, 0, 0.75));
@@ -116,39 +117,9 @@ section {
 }
 
 .logo:hover .logo-img {
-  transform: scale(1.10);
+  transform: scale(1.1);
   filter: drop-shadow(0 10px 32px rgba(255, 0, 0, 0.35))
           drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
-}
-
-@media (max-width: 820px) {
-  .logo-img {
-    height: 140px;
-  }
-}
-
-
-.logo:hover .logo-img {
-  transform: scale(1.08);
-  filter: drop-shadow(0 10px 32px rgba(255, 0, 0, 0.35))
-          drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
-}
-
-/* Make nav spacing adjust for larger logo */
-.nav {
-  padding: 1.2rem 0;
-}
-
-@media (max-width: 820px) {
-  .logo-img {
-    height: 110px; /* still big on mobile */
-  }
-}
-
-
-.logo:hover .logo-img {
-  transform: scale(1.06) rotate(-1deg);
-  filter: drop-shadow(0 7px 18px rgba(0, 0, 0, 0.95));
 }
 
 .nav-links {
@@ -156,6 +127,8 @@ section {
   align-items: center;
   gap: 1.3rem;
   font-size: 0.9rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-links a {
@@ -182,10 +155,6 @@ section {
 .nav-links a:hover::after,
 .nav-links a:focus-visible::after {
   transform: scaleX(1);
-}
-
-.nav-cta {
-  display: flex;
 }
 
 /* Burger (mobile) */
@@ -271,56 +240,6 @@ section {
   transition: background 0.18s ease-out, color 0.18s ease-out,
     border-color 0.18s ease-out, transform 0.18s ease-out;
 }
-#contact-box {
-  padding: 4rem 0;
-  background: #0a0a0a;
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #111;
-}
-
-.contact-box {
-  text-align: center;
-  max-width: 630px;
-  margin: 0 auto;
-  padding: 2.2rem 2rem;
-  background: #050505;
-  border: 2px solid var(--accent);
-  border-radius: 1.2rem;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
-}
-
-.contact-box h2 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
-  margin-bottom: 0.4rem;
-}
-
-.contact-box p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  margin-bottom: 1.6rem;
-}
-
-.contact-box-number a {
-  display: inline-block;
-  font-size: 1.7rem;
-  color: var(--accent);
-  font-weight: 700;
-  text-decoration: none;
-  margin-bottom: 1.2rem;
-  transition: color 0.18s ease-out, transform 0.18s ease-out;
-}
-
-.contact-box-number a:hover {
-  color: #ff3333;
-  transform: scale(1.05);
-}
-
-.contact-box-btn {
-  font-size: 1rem;
-  padding: 0.9rem 2.2rem;
-}
-
 
 .btn-primary {
   background: var(--accent);
@@ -380,17 +299,15 @@ section {
   font-weight: 700;
 }
 
+/* Smaller, better-balanced heading */
+
 .hero-title {
-  font-size: 2.6rem;     /* was too big, now balanced */
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 2.6rem;
   font-weight: 700;
   line-height: 1.15;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
 }
-
-.hero-highlight {
-  color: #ff0000;
-}
-
 
 .hero-highlight {
   color: var(--accent);
@@ -465,7 +382,7 @@ section {
   border-radius: 16px;
   border: 2px solid var(--accent);
   width: 100%;
-  max-width: 430px; /* bigger boards */
+  max-width: 430px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.95);
   overflow: hidden;
   transform-origin: center;
@@ -682,65 +599,3 @@ footer {
   justify-content: center;
   text-decoration: none;
   font-size: 1.4rem;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
-}
-
-/* =====================
-   RESPONSIVE BREAKPOINTS
-   ===================== */
-
-@media (max-width: 880px) {
-  .nav-links,
-  .nav-cta {
-    display: none;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  .mobile-menu {
-    display: flex;
-  }
-
-  .hero-grid,
-  .about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.2rem;
-  }
-
-  .hero {
-    padding-top: 4.2rem;
-  }
-
-  .about-side {
-    margin-top: 0.5rem;
-  }
-}
-
-@media (max-width: 640px) {
-  section {
-    padding: 3.6rem 0;
-  }
-
-  .hero-grid {
-    gap: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .menu-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .menu-board {
-    max-width: 380px;
-  }
-
-  .logo-img {
-    height: 74px;
-  }
-}
