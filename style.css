@@ -431,6 +431,14 @@ section {
   border: 2px solid var(--accent);
   width: 100%;
   max-width: 430px;
+   @media (max-width: 880px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.2rem;
+  }
+}
+
 
   /* NEW neon glow (matches logo) */
   box-shadow:
