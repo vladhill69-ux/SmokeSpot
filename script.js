@@ -2,6 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // YEAR
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+const burger = document.getElementById("burgerButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (burger && mobileMenu) {
+  burger.addEventListener("click", () => {
+    const open = burger.classList.toggle("open");
+    mobileMenu.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      burger.classList.remove("open");
+      mobileMenu.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    });
+  });
+}
 
   // BURGER MENU
   const burger = document.getElementById("burgerButton");
