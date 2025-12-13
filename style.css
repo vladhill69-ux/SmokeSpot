@@ -329,4 +329,265 @@ main > section{
 #menu .section-subtitle{ margin-left:auto; margin-right:auto; }
 .menu-grid{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.1rem, 3vw, 2.2rem);
+  justify-items:center;
+  align-items:stretch; /* key */
+}
+/* ===== Menu fly-in animation (boards) ===== */
+.menu-board {
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.menu-board.is-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* stagger delays (only when active) */
+.menu-board.is-in:nth-child(1) { transition-delay: 0ms; }
+.menu-board.is-in:nth-child(2) { transition-delay: 140ms; }
+.menu-board.is-in:nth-child(3) { transition-delay: 280ms; }
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .menu-board,
+  .menu-board.is-in {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+  .menu-board img { /* Also disable image anims */
+    animation: none;
+    transform: none;
+  }
+  .menu-board:hover { /* Disable flame on reduced motion */
+    animation: none;
+    box-shadow: var(--glow), var(--shadow);
+  }
+}
+/* same size cards */
+.menu-board{
+  width:100%;
+  max-width: 430px;
+  height: clamp(440px, 70vh, 590px); /* all 3 the same */
+  padding: 1.2rem;
+  margin:0;
+  background: var(--panel);
+  border-radius: 18px;
+  border: 2px solid var(--accent);
+  box-shadow: var(--glow), var(--shadow);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform-origin:center;
+  transition: transform .25s ease, border-color .25s ease; /* Removed box-shadow transition for flame snap */
+}
+.menu-board:hover{
+  transform: translateY(-10px) scale(1.03);
+  border-color: var(--accent-soft);
+  animation: flameBorder 0.5s ease-in-out infinite alternate; /* Fiery flame animation */
+  cursor:pointer;
+}
+/* image fits fully inside box + base anim setup (no hover changes now) */
+.menu-board img{
+  width:100%;
+  height:100%;
+  object-fit: contain; /* IMPORTANT: no cropping, no stretching */
+  border-radius: 14px;
+  transition: none; /* No image-specific hover anymore */
+  opacity: 0; /* Start hidden for entrance anim */
+  transform: translateY(20px); /* Start slid down */
+}
+/* Entrance: Simple staggered fade + slide-up per image (runs after board.is-in) */
+.menu-board.is-in img {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms ease, transform 600ms ease; /* Smooth slide/fade */
+}
+/* Per-image stagger delays (one after another, offset from board) */
+.menu-board.is-in:nth-child(1) img { transition-delay: 200ms; }
+.menu-board.is-in:nth-child(2) img { transition-delay: 400ms; }
+.menu-board.is-in:nth-child(3) img { transition-delay: 600ms; }
+/* Grill flame keyframe: Flickering red/orange border glow */
+@keyframes flameBorder {
+  0% {
+    box-shadow:
+      0 0 20px rgba(255, 50, 0, .6), /* Inner orange flicker */
+      0 0 40px rgba(255, 0, 0, .5), /* Red base glow */
+      0 0 60px rgba(255, 100, 0, .4), /* Outer flame tips */
+      var(--shadow);
+  }
+  100% {
+    box-shadow:
+      0 0 25px rgba(255, 100, 0, .8), /* Brighter orange burst */
+      0 0 50px rgba(255, 0, 0, .7), /* Intensified red */
+      0 0 80px rgba(255, 50, 0, .6), /* Wider flame spread */
+      var(--shadow);
+  }
+}
+@media (max-width: 980px){
+  .menu-grid{ grid-template-columns: 1fr; }
+  .menu-board{
+    max-width: 520px;
+    height: clamp(420px, 62vh, 560px);
+  }
+  /* Reduce stagger on mobile for faster feel */
+  .menu-board.is-in:nth-child(2) { transition-delay: 100ms; }
+  .menu-board.is-in:nth-child(3) { transition-delay: 200ms; }
+  .menu-board.is-in:nth-child(1) img { transition-delay: 100ms; }
+  .menu-board.is-in:nth-child(2) img { transition-delay: 200ms; }
+  .menu-board.is-in:nth-child(3) img { transition-delay: 300ms; }
+}
+/* =====================
+   ABOUT (merged card)
+   ===================== */
+.about-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.about-merged-card{
+  margin-top: 1.2rem;
+  background: rgba(10,10,10,.72);
+  border:1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  backdrop-filter: blur(6px);
+}
+.about-merged-card h3{
+  margin:0 0 .6rem;
+  font-family:"Montserrat",system-ui,sans-serif;
+  font-size: 1.25rem;
+}
+.about-tagline{
+  margin:.2rem 0 1rem;
+  color: var(--muted);
+}
+.about-merged-card{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+@media (max-width: 900px){
+  .about-merged-card{ grid-template-columns:1fr; }
+}
+.about-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  color:var(--muted);
+}
+.about-list li{
+  position:relative;
+  padding-left: 1.25rem;
+  margin: .55rem 0;
+}
+.about-list li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  top:.05rem;
+  font-size:.78rem;
+  color:var(--accent);
+}
+/* =====================
+   CONTACT (full “page” feel)
+   ===================== */
+#contact{
+  background: transparent;
+}
+.contact-box{
+  width:100%;
+  max-width: 720px;
+  margin:0 auto;
+  text-align:center;
+  background: rgba(5,5,5,.78);
+  border:2px solid var(--accent);
+  border-radius: 22px;
+  box-shadow: var(--glow), var(--shadow);
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  backdrop-filter: blur(6px);
+}
+.contact-box h2{
+  font-family:"Montserrat",system-ui,sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 .5rem;
+}
+.contact-box p{
+  margin:0 0 1.3rem;
+  color:var(--muted);
+}
+.contact-box-number a{
+  display:inline-block;
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  font-weight:800;
+  color: var(--accent);
+  text-decoration:none;
+  margin-bottom: 1.1rem;
+  transition: transform .18s ease, color .18s ease;
+}
+.contact-box-number a:hover{
+  color: var(--accent-soft);
+  transform: scale(1.03);
+}
+/* =====================
+   FOOTER
+   ===================== */
+footer{
+  padding: 2.4rem 0;
+  border-top:1px solid #111;
+  background: rgba(0,0,0,.92);
+}
+.footer-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.4rem;
+  flex-wrap:wrap;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:.9rem;
+  color:var(--muted);
+}
+.footer-logo{ height:44px; width:auto; }
+.footer-links{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.footer-links a{
+  color:var(--muted);
+  text-decoration:none;
+}
+.footer-links a:hover{ color:var(--accent); }
+.footer-bottom{
+  margin-top: 1.2rem;
+  color:var(--muted);
+  font-size:.85rem;
+}
+/* =====================
+   Floating call button
+   ===================== */
+.call-now-btn{
+  position:fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  background: var(--accent);
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size: 1.4rem;
+  box-shadow: 0 0 22px rgba(255,0,0,.35), 0 18px 40px rgba(0,0,0,.75);
+  transition: transform .18s ease;
+  z-index: 60;
+}
+.call-now-btn:hover{ transform: translateY(-3px); }
