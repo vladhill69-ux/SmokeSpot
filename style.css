@@ -36,6 +36,10 @@
     animation: none;
     transform: none;
   }
+  .menu-board:hover { /* Disable flame on reduced motion */
+    animation: none;
+    box-shadow: var(--glow), var(--shadow);
+  }
 }
 /* same size cards */
 .menu-board{
@@ -53,24 +57,21 @@
   align-items:center;
   justify-content:center;
   transform-origin:center;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  transition: transform .25s ease, border-color .25s ease; /* Removed box-shadow transition for flame snap */
 }
 .menu-board:hover{
   transform: translateY(-10px) scale(1.03);
   border-color: var(--accent-soft);
-  box-shadow:
-    0 0 36px rgba(255,0,0,.55),
-    0 0 85px rgba(255,0,0,.30),
-    var(--shadow);
+  animation: flameBorder 0.5s ease-in-out infinite alternate; /* Fiery flame animation */
   cursor:pointer;
 }
-/* image fits fully inside box + base anim setup */
+/* image fits fully inside box + base anim setup (no hover changes now) */
 .menu-board img{
   width:100%;
   height:100%;
   object-fit: contain; /* IMPORTANT: no cropping, no stretching */
   border-radius: 14px;
-  transition: transform .3s ease, filter .3s ease; /* Smooth hover */
+  transition: none; /* No image-specific hover anymore */
   opacity: 0; /* Start hidden for entrance anim */
   transform: translateY(20px); /* Start slid down */
 }
@@ -84,16 +85,22 @@
 .menu-board.is-in:nth-child(1) img { transition-delay: 200ms; }
 .menu-board.is-in:nth-child(2) img { transition-delay: 400ms; }
 .menu-board.is-in:nth-child(3) img { transition-delay: 600ms; }
-/* Hover: Image zoom + glow pulse (unchanged) */
-.menu-board:hover img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 12px rgba(255,0,0,.4)); /* Red "heat" glow */
-  animation: pulseGlow 1.5s ease-in-out infinite; /* Subtle ongoing pulse */
-}
-/* Pulse keyframe: Breathing glow on hover */
-@keyframes pulseGlow {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(255,0,0,.4)); }
-  50% { filter: drop-shadow(0 0 20px rgba(255,0,0,.6)); }
+/* Grill flame keyframe: Flickering red/orange border glow */
+@keyframes flameBorder {
+  0% {
+    box-shadow:
+      0 0 20px rgba(255, 50, 0, .6), /* Inner orange flicker */
+      0 0 40px rgba(255, 0, 0, .5), /* Red base glow */
+      0 0 60px rgba(255, 100, 0, .4), /* Outer flame tips */
+      var(--shadow);
+  }
+  100% {
+    box-shadow:
+      0 0 25px rgba(255, 100, 0, .8), /* Brighter orange burst */
+      0 0 50px rgba(255, 0, 0, .7), /* Intensified red */
+      0 0 80px rgba(255, 50, 0, .6), /* Wider flame spread */
+      var(--shadow);
+  }
 }
 @media (max-width: 980px){
   .menu-grid{ grid-template-columns: 1fr; }
