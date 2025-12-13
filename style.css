@@ -213,7 +213,12 @@ section {
   text-decoration: none;
   padding-bottom: 0.1rem;
   position: relative;
+  display: inline-block; /* REQUIRED for transform */
 }
+.nav-links a:hover {
+  animation: navBounce 0.55s ease;
+}
+
 
 .nav-links a::after {
   content: "";
