@@ -11,6 +11,27 @@ if (burger && mobileMenu) {
     mobileMenu.classList.toggle("open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
   });
+// Menu boards fly-in on scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const menuSection = document.querySelector("#menu");
+  const boards = document.querySelectorAll(".menu-board");
+
+  if (!menuSection || boards.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          boards.forEach((b) => b.classList.add("is-in"));
+          observer.unobserve(entry.target); // run once
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  observer.observe(menuSection);
+});
 
   mobileMenu.querySelectorAll("a").forEach(a => {
     a.addEventListener("click", () => {
