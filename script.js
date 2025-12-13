@@ -24,19 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Menu boards fly-in on scroll
   const menuSection = document.querySelector("#menu");
   const boards = document.querySelectorAll(".menu-board");
-  if (!menuSection || boards.length === 0) return;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          boards.forEach((b) => b.classList.add("is-in"));
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.25 }
-  );
-  observer.observe(menuSection);
+  if (menuSection && boards.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            boards.forEach((b) => b.classList.add("is-in"));
+            observer.unobserve(entry.target); // run once
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(menuSection);
+  }
 
-  // Remove contact form code unless adding form
+  // No contact form code—removed as unused (add back if implementing a form)
 });
