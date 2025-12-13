@@ -139,7 +139,7 @@ main > section{
 /* BIG LOGO */
 .logo{ display:inline-flex; align-items:center; }
 .logo-img{
-  height: clamp(84px, 9vw, 160px);
+  height: clamp(110px, 9vw, 160px);
   width:auto;
   filter:
     drop-shadow(0 0 18px rgba(255,0,0,.35))
