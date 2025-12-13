@@ -37,6 +37,13 @@ body {
 /* ===========
    ASHY BACKDROP + LOGO WATERMARK
    =========== */
+@keyframes navBounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  55%  { transform: translateY(2px); }
+  75%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
 
 body {
   position: relative;
